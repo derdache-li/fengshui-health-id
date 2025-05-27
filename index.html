@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>风水保健 ID 生成器</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+    body {
+      font-family: 'ZCOOL KuaiLe', cursive;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #ff1493;
+      text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493, 0 0 30px #ff1493;
+      margin-bottom: 30px;
+      animation: flicker 2s infinite;
+    }
+
+    #idOutput {
+      font-size: 36px;
+      background-color: #111;
+      color: #00ffff;
+      padding: 20px 40px;
+      border: 5px double #00ffff;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      animation: neonPulse 1.5s infinite alternate;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 24px;
+      background-color: #ff4500;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff4500;
+    }
+
+    button:hover {
+      background-color: #ff6347;
+      box-shadow: 0 0 20px #ff6347;
+    }
+
+    @keyframes neonPulse {
+      from {
+        text-shadow: 0 0 5px #00ffff;
+      }
+      to {
+        text-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+      }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>风水保健 ID 生成器</h1>
+  <div id="idOutput">点击生成你的ID</div>
+  <button onclick="generateID()">生成新的 ID</button>
+
+  <script>
+    const fengshuiWords = [
+      "阴阳", "改运", "风水", "镇宅", "香炉", "关公", "财神", "观音",
+      "起名", "合婚", "开光", "选日", "命理", "测字", "八卦", "布阵", "法器",
+      "天师", "通灵", "符咒", "招财", "驱鬼", "转运珠", "五行", "罗盘", "灵签", "命盘", "斗数", "拜太岁"
+    ];
+
+    const healthWords = [
+      "灰指甲", "腰疼", "腿痛", "足跟痛", "失眠", "眩晕", "痔疮膏",
+      "漏尿贴", "鼻炎", "流鼻血", "前列腺", "阳痿", "早泄",
+      "便秘", "脚气膏", "头痛粉", "健脑丸", "肾宝片", "跌打膏", "清火片",
+      "乳腺增生", "风湿", "眼袋", "肥胖", "掉发", "宫寒", "湿气重", "皮肤瘙痒", "肚脐贴"
+    ];
+
+    function generateID() {
+      const fengshui = fengshuiWords[Math.floor(Math.random() * fengshuiWords.length)];
+      const health = healthWords[Math.floor(Math.random() * healthWords.length)];
+      document.getElementById("idOutput").textContent = fengshui + health;
+    }
+  </script>
+
+</body>
+</html>
